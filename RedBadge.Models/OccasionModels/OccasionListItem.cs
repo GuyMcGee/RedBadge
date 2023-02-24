@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace RedBadge.Models.OccasionModels
 {
-    internal class Class1
+    internal class OccasionListItem
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public DateTime DateTime { get; set; }
     }
 }

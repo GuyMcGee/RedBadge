@@ -8,5 +8,7 @@ namespace RedBadge.Models.GameModels
 {
     internal class GameListItem
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
