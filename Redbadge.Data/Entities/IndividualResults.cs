@@ -13,7 +13,7 @@ namespace Redbadge.Data.Entities
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey(nameof(Game))]
+        [ForeignKey(nameof(GameEntity))]
         public int GameId { get; set; }
 
         [ForeignKey(nameof(Occasion))]

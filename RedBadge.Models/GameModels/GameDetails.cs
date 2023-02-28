@@ -2,9 +2,9 @@
 
 namespace RedBadge.Models.GameModels
 {
-    internal class GameDetails
+    public class GameDetails
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
     }
 }

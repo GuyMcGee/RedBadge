@@ -21,4 +21,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Redbadge.Data\Redbadge.Data.csproj" />
+    <ProjectReference Include="..\RedBadge.Models\RedBadge.Models.csproj" />
+  </ItemGroup>
+
 </Project>

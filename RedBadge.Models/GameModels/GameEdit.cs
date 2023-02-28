@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace RedBadge.Models.GameModels
 {
-    internal class GameEdit
+    public class GameEdit
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
     }
 }
