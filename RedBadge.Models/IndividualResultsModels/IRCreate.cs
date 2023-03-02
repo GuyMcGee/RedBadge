@@ -8,7 +8,7 @@ namespace RedBadge.Models.IndividualResultsModels
 {
     internal class IRCreate
     {
-        public int GameId { get; set; }
+        public int GameId { get; set; } //Why does this not have to be declared as "!null"?
         public int OccasionId { get; set; }
         public int PlayerId { get; set; }
         public int RankId { get; set; }

@@ -4,7 +4,7 @@ namespace RedBadge.Models.GameModels
 {
     public class GameDetails
     {
-        public int id { get; set; }
-        public string name { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; } = null!;
     }
 }

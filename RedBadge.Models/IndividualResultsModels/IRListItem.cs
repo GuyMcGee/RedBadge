@@ -15,7 +15,7 @@ namespace RedBadge.Models.IndividualResultsModels
         public int GameId { get; set; }
         public int OccasionId { get; set; }
         public int PlayerId { get; set; }
-        public string PlayerName { get; set; }
+        public string PlayerName { get; set; } = null!;
         public int RankId { get; set; }
     }
 }

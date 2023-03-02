@@ -9,6 +9,6 @@ namespace RedBadge.Models.RankModels
     internal class RankListItem
     {
         public int Id { get; set; }
-        public string RankName { get; set; }
+        public string RankName { get; set; } = null!;
     }
 }

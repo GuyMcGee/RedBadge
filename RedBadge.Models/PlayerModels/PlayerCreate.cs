@@ -9,6 +9,9 @@ namespace RedBadge.Models.PlayerModels
 {
     internal class PlayerCreate
     {
-        public string Name { get; set; }
+        [Required]
+        [MaxLength(21, ErrorMessage = "Cannot exceed 64 characters")]
+        [MinLength(1, ErrorMessage = "Must have at least 1 character")]
+        public string Name { get; set; } = null!;
     }
 }

@@ -34,8 +34,8 @@ public class GameService : IGameService
             return null;
         var gameDetail = new GameDetails
         {
-            id = game.Id,
-            name = game.Name,
+            Id = game.Id,
+            Name = game.Name,
         };
 
         return gameDetail;
@@ -45,8 +45,8 @@ public class GameService : IGameService
     {
         return await _context.Game.Select(gameModel => new GameListItem
         {
-            id = gameModel.Id,
-            name = gameModel.Name,
+            Id = gameModel.Id,
+            Name = gameModel.Name,
         }).ToListAsync();   
     }
 

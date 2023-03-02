@@ -8,5 +8,6 @@ namespace RedBadge.Services.Occasion
 {
     internal class IOccasionService
     {
+        Task<bool> CreateOccasionAsync(OccasionCreate occasionToCreate);
     }
 }

@@ -13,6 +13,6 @@ namespace Redbadge.Data.Entities
         public int Id { get; set; }
 
         [Required]
-        public string RankName { get; set; }
+        public string RankName { get; set; } = null!;
     }
 }

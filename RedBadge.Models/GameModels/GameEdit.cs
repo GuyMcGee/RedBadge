@@ -11,8 +11,8 @@ namespace RedBadge.Models.GameModels
     {
         public int Id { get; set; }
         [Required]
-        [MaxLength(255, ErrorMessage = "Cannot exceed 255 characters")]
-        [MinLength(2, ErrorMessage = "Must have at least 2 characters")]
+        [MaxLength(64, ErrorMessage = "Cannot exceed 64 characters")]
+        [MinLength(1, ErrorMessage = "Must have at least 1 character")]
         public string Name { get; set; } = null!;
     }
 }

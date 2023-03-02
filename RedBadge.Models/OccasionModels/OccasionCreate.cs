@@ -9,7 +9,10 @@ namespace RedBadge.Models.OccasionModels
 {
     internal class OccasionCreate
     {
-        public string Name { get; set; }
+        [Required]
+        [MaxLength(50, ErrorMessage = "Cannot exceed 64 characters")]
+        [MinLength(1, ErrorMessage = "Must have at least 1 character")]
+        public string Name { get; set; } = null!;
         public DateTime DateTime { get; set; }
     }
 }

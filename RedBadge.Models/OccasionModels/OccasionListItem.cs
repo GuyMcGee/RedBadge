@@ -9,7 +9,7 @@ namespace RedBadge.Models.OccasionModels
     internal class OccasionListItem
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
         public DateTime DateTime { get; set; }
     }
 }
