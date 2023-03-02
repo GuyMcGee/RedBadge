@@ -5,7 +5,7 @@ public interface IGameService
 
     public Task<GameDetails> GetGameByIdAsync(int gameId);
 
-    public Task<List<GameListItem>> GetGamesAsync();
+    public Task<List<GameListItem>> GetAllGamesAsync();
 
     public Task<bool> UpdateGameAsync(int gameId, GameEdit gameModel);
 

@@ -25,13 +25,21 @@ public class GameService : IGameService
 
         return numberOfChanges == 1;
     }
+    public async Task<List<GameListItem>>GetAllGamesAsync()
+    {
+        return await _context.Game.Select(gameModel => new GameListItem
+        {
+            Id = gameModel.Id,
+            Name = gameModel.Name,
+        }).ToListAsync();   
+    }
 
     public async Task<GameDetails> GetGameByIdAsync(int gameId)
     {
         var game = await _context.Game.FindAsync
             (gameId);
         if (game is null)
-            return null;
+            return null; //is this freaking out because it is impossible for this variable to be null?
         var gameDetail = new GameDetails
         {
             Id = game.Id,
@@ -39,15 +47,6 @@ public class GameService : IGameService
         };
 
         return gameDetail;
-    }
-
-    public async Task<List<GameListItem>>GetGamesAsync()
-    {
-        return await _context.Game.Select(gameModel => new GameListItem
-        {
-            Id = gameModel.Id,
-            Name = gameModel.Name,
-        }).ToListAsync();   
     }
 
     public async Task<bool> UpdateGameAsync(int gameId, GameEdit gameModel)
