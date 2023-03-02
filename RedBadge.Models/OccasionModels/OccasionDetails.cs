@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RedBadge.Models.OccasionModels
 {
-    internal class OccasionDetails
+    public class OccasionDetails
     {
         public int Id { get; set; }
         public string Name { get; set; } = null!;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RedBadge.Models.RankModels
 {
-    internal class RankEdit
+    public class RankEdit
     {
         public int Id { get; set; }
         [Required]

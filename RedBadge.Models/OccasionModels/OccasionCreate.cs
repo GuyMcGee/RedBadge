@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RedBadge.Models.OccasionModels
 {
-    internal class OccasionCreate
+    public class OccasionCreate
     {
         [Required]
         [MaxLength(50, ErrorMessage = "Cannot exceed 64 characters")]

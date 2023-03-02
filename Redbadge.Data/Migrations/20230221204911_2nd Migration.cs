@@ -41,7 +41,7 @@ namespace Redbadge.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Occasion",
+                name: "OccasionEntity",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -91,7 +91,7 @@ namespace Redbadge.Data.Migrations
                 name: "IndividualResults");
 
             migrationBuilder.DropTable(
-                name: "Occasion");
+                name: "OccasionEntity");
 
             migrationBuilder.DropTable(
                 name: "Player");

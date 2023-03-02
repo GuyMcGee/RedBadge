@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RedBadge.Models.OccasionModels
 {
-    internal class OccasionEdit
+    public class OccasionEdit
     {
         public int Id { get; set; }
         [Required]

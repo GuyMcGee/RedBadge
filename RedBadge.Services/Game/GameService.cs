@@ -13,7 +13,7 @@ public class GameService : IGameService
         _context = context;
     }
 
-    public async Task<bool> GameCreateAsync(GameCreate gameModel)
+    public async Task<bool> CreateGameAsync(GameCreate gameModel)
     {
         var gameEntity = new GameEntity()
         {

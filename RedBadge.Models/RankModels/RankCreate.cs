@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RedBadge.Models.RankModels
 {
-    internal class RankCreate
+    public class RankCreate
     {
         [Required]
         [MaxLength(30, ErrorMessage = "Cannot exceed 64 characters")]

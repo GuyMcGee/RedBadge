@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RedBadge.Models.RankModels
 {
-    internal class RankDetails
+    public class RankDetails
     {
         public int Id { get; set; }
         public string RankName { get; set; } = null!;

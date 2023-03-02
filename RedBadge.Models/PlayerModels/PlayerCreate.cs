@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RedBadge.Models.PlayerModels
 {
-    internal class PlayerCreate
+    public class PlayerCreate
     {
         [Required]
         [MaxLength(21, ErrorMessage = "Cannot exceed 64 characters")]
