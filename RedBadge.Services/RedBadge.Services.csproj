@@ -26,4 +26,8 @@
     <ProjectReference Include="..\RedBadge.Models\RedBadge.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Individual\" />
+  </ItemGroup>
+
 </Project>

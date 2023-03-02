@@ -17,7 +17,7 @@ public class GameService : IGameService
     {
         var gameEntity = new GameEntity()
         {
-            name = gameModel.Name,
+            Name = gameModel.Name,
         };
 
         await _context.Game.AddAsync(gameEntity);
@@ -34,8 +34,8 @@ public class GameService : IGameService
             return null;
         var gameDetail = new GameDetails
         {
-            id = game.id,
-            name = game.name,
+            id = game.Id,
+            name = game.Name,
         };
 
         return gameDetail;
@@ -45,8 +45,8 @@ public class GameService : IGameService
     {
         return await _context.Game.Select(gameModel => new GameListItem
         {
-            id = gameModel.id,
-            name = gameModel.name,
+            id = gameModel.Id,
+            name = gameModel.Name,
         }).ToListAsync();   
     }
 
@@ -58,7 +58,7 @@ public class GameService : IGameService
 
         else
         {
-            game.name = gameModel.name;
+            game.Name = gameModel.Name;
 
             await _context.SaveChangesAsync();
             return true;
