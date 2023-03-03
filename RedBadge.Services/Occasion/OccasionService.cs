@@ -2,6 +2,7 @@
 using Microsoft.Identity.Client;
 using Redbadge.Data.Context;
 using Redbadge.Data.Entities;
+using RedBadge.Models.GameModels;
 using RedBadge.Models.OccasionModels;
 
 public class OccasionService : IOccasionService
@@ -54,5 +55,34 @@ public class OccasionService : IOccasionService
         }
     }
 
-    public 
+    public async Task<bool> UpdateOccasionAsync(int occasionId, OccasionEdit occasionModel)
+    {
+        var occasion = await _context.Occasion.FindAsync(occasionId);
+        if (occasion == null)
+            return default;
+
+        else
+        {
+            occasion.Name = occasionModel.Name;
+            occasion.DateTime = occasionModel.DateTime;
+
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+    }
+
+    public async Task<bool> DeleteOccasionAsync(int occasionId)
+    {
+        var occasionEntity = await _context.Occasion.FindAsync(occasionId);
+
+        if (occasionEntity == null)
+            return false;
+
+        else
+        {
+            _context.Occasion.Remove(occasionEntity);
+            return await _context.SaveChangesAsync() == 1;
+        }
+    }
 }
