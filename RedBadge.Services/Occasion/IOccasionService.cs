@@ -1,6 +1,13 @@
-﻿public class IOccasionService
+﻿using RedBadge.Models.OccasionModels;
+public interface IOccasionService
     {
-     Task<bool> CreateOccasionAsync(OccasionCreate occasionToCreate);
+     public Task<bool> CreateOccasionAsync(OccasionCreate occasionToCreate);
 
-    Task<bool> GetOccasionByIdAsync(int occasionId);
+    public Task<List<OccasionListItem>> GetAllOccasionsAsync();
+
+    public Task<bool> GetOccasionByIdAsync(int occasionId);
+
+    public Task<bool> UpdateOccasionAsync(int occasionId, OccasionEdit occasionModel);
+
+    public Task<bool> DeleteOccasionAsync(int occasionId);
     }
