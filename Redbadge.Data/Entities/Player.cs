@@ -2,7 +2,7 @@
 
 namespace Redbadge.Data.Entities
 {
-    public class Player
+    public class PlayerEntity
     {
         [Key]
         public int Id { get; set; }

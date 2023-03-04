@@ -5,7 +5,7 @@ public interface IOccasionService
 
     public Task<List<OccasionListItem>> GetAllOccasionsAsync();
 
-    public Task<bool> GetOccasionByIdAsync(int occasionId);
+    public Task<OccasionDetails> GetOccasionByIdAsync(int occasionId);
 
     public Task<bool> UpdateOccasionAsync(int occasionId, OccasionEdit occasionModel);
 
