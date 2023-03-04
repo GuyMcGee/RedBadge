@@ -68,7 +68,7 @@ namespace Redbadge.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Rank",
+                name: "RankEntity",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -97,7 +97,7 @@ namespace Redbadge.Data.Migrations
                 name: "PlayerEntity");
 
             migrationBuilder.DropTable(
-                name: "Rank");
+                name: "RankEntity");
         }
     }
 }

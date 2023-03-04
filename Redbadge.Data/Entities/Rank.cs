@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Redbadge.Data.Entities
 {
-    public class Rank
+    public class RankEntity
     {
         [Key]
         public int Id { get; set; }

@@ -9,7 +9,7 @@ namespace Redbadge.Data.Context
         public DbSet<GameEntity> Game { get; set; }
         public DbSet<OccasionEntity> Occasion { get; set; }
         public DbSet<PlayerEntity> Player { get; set; }
-        public DbSet<Rank> Rank { get; set; }
+        public DbSet<RankEntity> Rank { get; set; }
         public DbSet<IndividualResults> IndividualResults { get; set; }
     }
 }

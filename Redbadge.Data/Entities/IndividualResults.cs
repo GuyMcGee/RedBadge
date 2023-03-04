@@ -24,7 +24,7 @@ namespace Redbadge.Data.Entities
         public int PlayerId { get; set; }
 
 
-        [ForeignKey(nameof(Rank))]
+        [ForeignKey(nameof(RankEntity))]
         public int RankId { get; set; }
     }
 }

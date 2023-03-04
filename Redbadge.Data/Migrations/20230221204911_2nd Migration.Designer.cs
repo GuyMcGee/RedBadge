@@ -104,7 +104,7 @@ namespace Redbadge.Data.Migrations
                     b.ToTable("PlayerEntity");
                 });
 
-            modelBuilder.Entity("Redbadge.Data.Entities.Rank", b =>
+            modelBuilder.Entity("Redbadge.Data.Entities.RankEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -118,7 +118,7 @@ namespace Redbadge.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Rank");
+                    b.ToTable("RankEntity");
                 });
 #pragma warning restore 612, 618
         }

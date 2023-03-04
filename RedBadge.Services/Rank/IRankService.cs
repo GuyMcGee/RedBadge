@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using RedBadge.Models.RankModels;
 
-namespace RedBadge.Services.Rank
+public interface IRankService
 {
-    internal class IRankService
-    {
-    }
+    public Task<bool> CreateRankAsync(RankCreate rankToCreate);
+
+    public Task<List<RankListItem>> GetAllRanksAsync();
+
+    public Task<RankDetails> GetRankByIdAsync(int rankId);
+
+    public Task<bool> UpdateRankAsync(int rankId, RankEdit rankModel);
+
+    public Task<bool> DeleteRankAsync(int rankId);
 }
