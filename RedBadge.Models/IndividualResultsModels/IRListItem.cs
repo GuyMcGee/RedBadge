@@ -9,13 +9,12 @@ using System.Threading.Tasks;
 
 namespace RedBadge.Models.IndividualResultsModels
 {
-    internal class IRListItem
+    public class IRListItem
     {
         public int Id { get; set; }
-        public int GameId { get; set; }
-        public int OccasionId { get; set; }
-        public int PlayerId { get; set; }
+        public string GameName { get; set; } = null!;
+        public string OccasionName { get; set; } = null!;
         public string PlayerName { get; set; } = null!;
-        public int RankId { get; set; }
+        public string RankName { get; set; } = null!;
     }
 }

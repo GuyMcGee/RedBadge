@@ -5,7 +5,7 @@ using RedBadge.Models.RankModels;
 
 namespace RedBadge.Models.IndividualResultsModels
 {
-    internal class IRDetails
+    public class IRDetails
     {
         public int Id { get; set; }
         public GameListItem Game { get; set; } = null!;

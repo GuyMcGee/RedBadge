@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RedBadge.Models.IndividualResultsModels
 {
-    internal class IREdit
+    public class IREdit
     {
         public int Id { get; set; }
         public int GameId { get; set; }

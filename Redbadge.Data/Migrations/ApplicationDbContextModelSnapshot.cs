@@ -39,7 +39,7 @@ namespace Redbadge.Data.Migrations
                     b.ToTable("Game");
                 });
 
-            modelBuilder.Entity("Redbadge.Data.Entities.IndividualResults", b =>
+            modelBuilder.Entity("Redbadge.Data.Entities.IndividualResultsEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -61,7 +61,7 @@ namespace Redbadge.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("IndividualResults");
+                    b.ToTable("IndividualResultsEntity");
                 });
 
             modelBuilder.Entity("Redbadge.Data.Entities.OccasionEntity", b =>

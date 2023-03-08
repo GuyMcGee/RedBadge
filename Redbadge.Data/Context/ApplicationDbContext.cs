@@ -10,6 +10,6 @@ namespace Redbadge.Data.Context
         public DbSet<OccasionEntity> Occasion { get; set; }
         public DbSet<PlayerEntity> Player { get; set; }
         public DbSet<RankEntity> Rank { get; set; }
-        public DbSet<IndividualResults> IndividualResults { get; set; }
+        public DbSet<IndividualResultsEntity> IndividualResults { get; set; }
     }
 }
