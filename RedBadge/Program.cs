@@ -10,7 +10,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddAutoMapper(typeof(MapperConfigurations));
-
+builder.Services.AddScoped<IGameService, GameService>();
+builder.Services.AddScoped<IOccasionService, OccasionService>();
+builder.Services.AddScoped<IPlayerService, PlayerService>();
+builder.Services.AddScoped<IRankService, RankService>();
+builder.Services.AddScoped<IIRService, IRService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

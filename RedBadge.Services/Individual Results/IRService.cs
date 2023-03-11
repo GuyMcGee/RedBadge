@@ -43,10 +43,10 @@ public class IRService : IIRService
             .Select(iRObject => new IRListItem
             {
             Id = iRObject.Id,
-            GameName = iRObject.Game.Name,
-            OccasionName = iRObject.Occasion.Name,
-            PlayerName = iRObject.Player.Name,
-            RankName = iRObject.Rank.RankName,
+            GameId = iRObject.Game.Id,
+            OccasionId = iRObject.Occasion.Id,
+            PlayerId = iRObject.Player.Id,
+            RankId = iRObject.Rank.Id,
         }).ToListAsync();
     }
 
