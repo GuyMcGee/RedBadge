@@ -22,7 +22,7 @@ namespace Redbadge.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Redbadge.Data.Entities.Game", b =>
+            modelBuilder.Entity("Redbadge.Data.Entities.GameEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -37,6 +37,33 @@ namespace Redbadge.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Game");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Rock, Paper, Scissors"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Mario Kart 8"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Jenga"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Pool"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Odd Ball, Halo Infinite"
+                        });
                 });
 
             modelBuilder.Entity("Redbadge.Data.Entities.IndividualResultsEntity", b =>
@@ -61,7 +88,15 @@ namespace Redbadge.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("IndividualResultsEntity");
+                    b.HasIndex("GameId");
+
+                    b.HasIndex("OccasionId");
+
+                    b.HasIndex("PlayerId");
+
+                    b.HasIndex("RankId");
+
+                    b.ToTable("IndividualResults");
                 });
 
             modelBuilder.Entity("Redbadge.Data.Entities.OccasionEntity", b =>
@@ -81,7 +116,7 @@ namespace Redbadge.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("OccasionEntity");
+                    b.ToTable("Occasion");
                 });
 
             modelBuilder.Entity("Redbadge.Data.Entities.PlayerEntity", b =>
@@ -98,7 +133,7 @@ namespace Redbadge.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PlayerEntity");
+                    b.ToTable("Player");
                 });
 
             modelBuilder.Entity("Redbadge.Data.Entities.RankEntity", b =>
@@ -115,7 +150,42 @@ namespace Redbadge.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RankEntity");
+                    b.ToTable("Rank");
+                });
+
+            modelBuilder.Entity("Redbadge.Data.Entities.IndividualResultsEntity", b =>
+                {
+                    b.HasOne("Redbadge.Data.Entities.GameEntity", "Game")
+                        .WithMany()
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Redbadge.Data.Entities.OccasionEntity", "Occasion")
+                        .WithMany()
+                        .HasForeignKey("OccasionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Redbadge.Data.Entities.PlayerEntity", "Player")
+                        .WithMany()
+                        .HasForeignKey("PlayerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Redbadge.Data.Entities.RankEntity", "Rank")
+                        .WithMany()
+                        .HasForeignKey("RankId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Game");
+
+                    b.Navigation("Occasion");
+
+                    b.Navigation("Player");
+
+                    b.Navigation("Rank");
                 });
 #pragma warning restore 612, 618
         }

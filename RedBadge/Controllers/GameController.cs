@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RedBadge.Services.Game;
 
 namespace RedBadge.Controllers
 {
+    [Route("[controller]")]
     public class GameController : Controller
     {
         private IGameService _gameService;

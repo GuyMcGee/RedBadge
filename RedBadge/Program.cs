@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Redbadge.Data.Context;
 using RedBadge.Services.Configurations;
+using RedBadge.Services.Game;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using RedBadge.Models;
 
-namespace WebApplication1test.Controllers
+namespace RedBadge.Controllers
 {
     public class HomeController : Controller
     {
