@@ -4,9 +4,8 @@
     ViewData["Title"] = "Games List";
 }
 
-if(Model.Count() >0)
-{
-    //the following is bootstrap
+@Html.ActionLink("Add New Game", "Post", "Game")
+
 <table class="table">
     <thead>
         <tr>
@@ -22,17 +21,11 @@ if(Model.Count() >0)
                 <td>@game.Id</td>
                 <td>@game.Name</td>
                 <td>
-                    <a asp-action="Details" asp-route-id="@game.Id">Details</a>
-                    <a asp-action="Edit" asp-route-id="@game.Id">Edit</a>
-                    <a asp-action="Delete" asp-route-id="@game.Id">Delete</a>
+                    @Html.ActionLink("Details", "Details", "Game", new {id=game.Id})
+                    @Html.ActionLink("Edit", "Edit", "Game", new {id=game.Id})
+                    @Html.ActionLink("Delete", "Delete", "Game", new {id=game.Id})
                 </td>
             </tr>
         }
     </tbody>
 </table>
-}
-
-else 
-{
-    <p class="text-danger">Would it kill you to play one game?</p>
-}
