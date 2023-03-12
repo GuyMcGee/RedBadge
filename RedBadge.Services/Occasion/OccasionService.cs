@@ -5,6 +5,8 @@ using Redbadge.Data.Entities;
 using RedBadge.Models.GameModels;
 using RedBadge.Models.OccasionModels;
 
+namespace RedBadge.Services.Occasion
+{
 public class OccasionService : IOccasionService
 {
     private readonly ApplicationDbContext _context;
@@ -86,3 +88,5 @@ public class OccasionService : IOccasionService
         }
     }
 }
+}
+

@@ -2,6 +2,13 @@ using Microsoft.EntityFrameworkCore;
 using Redbadge.Data.Context;
 using RedBadge.Services.Configurations;
 using RedBadge.Services.Game;
+using RedBadge.Services.Player;
+using RedBadge.Services.Occasion;
+using RedBadge.Services.Rank;
+using RedBadge.Services.IndividualResults;
+
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 

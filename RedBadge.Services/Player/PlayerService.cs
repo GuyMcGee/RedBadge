@@ -4,6 +4,8 @@ using Redbadge.Data.Entities;
 using RedBadge.Models.OccasionModels;
 using RedBadge.Models.PlayerModels;
 
+namespace RedBadge.Services.Player
+{
 public class PlayerService : IPlayerService
 {
     private readonly ApplicationDbContext _context;
@@ -76,4 +78,5 @@ public class PlayerService : IPlayerService
             return await _context.SaveChangesAsync() == 1;
         }
     }
+}
 }

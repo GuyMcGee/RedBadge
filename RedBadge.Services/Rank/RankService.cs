@@ -4,6 +4,8 @@ using Redbadge.Data.Entities;
 using RedBadge.Models.PlayerModels;
 using RedBadge.Models.RankModels;
 
+namespace RedBadge.Services.Rank
+{
 public class RankService : IRankService
 {
     private readonly ApplicationDbContext _context;
@@ -77,4 +79,6 @@ public class RankService : IRankService
             return await _context.SaveChangesAsync() == 1;
         }
     }
+}
+
 }

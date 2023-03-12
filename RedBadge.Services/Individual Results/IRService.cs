@@ -10,6 +10,8 @@ using RedBadge.Models.PlayerModels;
 using RedBadge.Models.RankModels;
 using System.Runtime.CompilerServices;
 
+namespace RedBadge.Services.IndividualResults
+{
 public class IRService : IIRService
 {
     private readonly ApplicationDbContext _context;
@@ -113,4 +115,5 @@ public class IRService : IIRService
         _context.IndividualResults.Remove(iREntity);
         return await _context.SaveChangesAsync() == 1;
     }
+}
 }
