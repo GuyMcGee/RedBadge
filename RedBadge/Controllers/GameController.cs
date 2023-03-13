@@ -32,7 +32,7 @@ namespace RedBadge.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Post(GameCreate game)
         {
-            if(!ModelState.IsValid)return BadRequest(game);
+            if(!ModelState.IsValid)return BadRequest(ModelState);
             if(await _gameService.CreateGameAsync(game))
                 return RedirectToAction(nameof(Index));
             else
