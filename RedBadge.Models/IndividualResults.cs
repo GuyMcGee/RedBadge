@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RedBadge.Models
 {
-    public class IndividualResult
+    public class IndividualResults
     {
         public int Id { get; set; }
         public int GameId { get; set; }

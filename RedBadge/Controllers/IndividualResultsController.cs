@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RedBadge.Models;
+using RedBadge.Models.IndividualResultsModels;
 using RedBadge.Services.IndividualResults;
 
 namespace RedBadge.Controllers
