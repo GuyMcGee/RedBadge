@@ -66,7 +66,7 @@ namespace Redbadge.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Redbadge.Data.Entities.IndividualResultsEntity", b =>
+            modelBuilder.Entity("Redbadge.Data.Entities.IndividualResultEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -180,7 +180,7 @@ namespace Redbadge.Data.Migrations
                     b.ToTable("Rank");
                 });
 
-            modelBuilder.Entity("Redbadge.Data.Entities.IndividualResultsEntity", b =>
+            modelBuilder.Entity("Redbadge.Data.Entities.IndividualResultEntity", b =>
                 {
                     b.HasOne("Redbadge.Data.Entities.GameEntity", "Game")
                         .WithMany()

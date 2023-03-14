@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Redbadge.Data.Entities
 {
-    public class IndividualResultsEntity
+    public class IndividualResultEntity
     {
         [Key]
         public int Id { get; set; }

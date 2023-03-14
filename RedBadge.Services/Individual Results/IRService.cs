@@ -1,14 +1,10 @@
 ﻿using Redbadge.Data.Context;
 using System.Net;
-using RedBadge.Models.IndividualResultsModels;
 using Redbadge.Data.Entities;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore;
-using RedBadge.Models.GameModels;
-using RedBadge.Models.OccasionModels;
-using RedBadge.Models.PlayerModels;
-using RedBadge.Models.RankModels;
 using System.Runtime.CompilerServices;
+using RedBadge.Models;
 
 namespace RedBadge.Services.IndividualResults
 {
@@ -21,9 +17,9 @@ public class IRService : IIRService
         _context = context;
     }
 
-    public async Task<bool> CreateIRAsync (IRCreate iRToCreate)
+    public async Task<bool> CreateIRAsync (IndividualResult iRToCreate)
     {
-        var entity = new IndividualResultsEntity
+        var entity = new IndividualResultEntity
         {
             GameId = iRToCreate.GameId,
             OccasionId = iRToCreate.OccasionId,
@@ -31,66 +27,72 @@ public class IRService : IIRService
             RankId = iRToCreate.RankId,
         };
 
-        await _context.IndividualResults.AddAsync(entity);
+        await _context.IndividualResult.AddAsync(entity);
         return await _context.SaveChangesAsync() > 0;
     }
 
-    public async Task<List<IRListItem>> GetAllIRAsync()
+    public async Task<List<IndividualResult>> GetAllIRAsync()
     {
-        return await _context.IndividualResults
-            .Include(i => i.Game)
-            .Include(i => i.Occasion)
-            .Include(i => i.Player)
-            .Include(i => i.Rank)
-            .Select(iRObject => new IRListItem
-            {
-            Id = iRObject.Id,
-            GameId = iRObject.Game.Id,
-            OccasionId = iRObject.Occasion.Id,
-            PlayerId = iRObject.Player.Id,
-            RankId = iRObject.Rank.Id,
-        }).ToListAsync();
+        return await _context.IndividualResult
+           .Include(i => i.Game)
+           .Include(i => i.Occasion)
+           .Include(i => i.Player)
+           .Include(i => i.Rank)
+           .Select(iRObject => new IndividualResult
+           {
+               Id = iRObject.Id,
+               GameId = iRObject.Game.Id,
+               OccasionId = iRObject.Occasion.Id,
+               PlayerId = iRObject.Player.Id,
+               RankId = iRObject.Rank.Id,
+           }).ToListAsync();
     }
 
-    public async Task<IRDetails> GetIRByIdAsync(int iRId)
+    public async Task<IndividualResult> GetIRByIdAsync(int iRId)
     {
-        var iRFromDb = await _context.IndividualResults
+        var iRFromDb = await _context.IndividualResult
             .Include(iREntity => iREntity.Game)
             .Include(iREntity => iREntity.Occasion)
             .Include(iREntity => iREntity.Player)
             .Include(iREntity => iREntity.Rank)
             .FirstOrDefaultAsync(iREntity => iREntity.Id == iRId);
+            //return iRFromDb is null ? null : iRFromDb;
 
-        return iRFromDb is null ? null : new IRDetails
-        {
-            Id = iRFromDb.Id,
-            Game = new GameListItem
-            {
-                Id = iRFromDb.Game.Id,
-                Name = iRFromDb.Game.Name,
-            },
-            Occasion = new OccasionListItem
-            {
-                Id = iRFromDb.Occasion.Id,
-                Name = iRFromDb.Occasion.Name,
-                DateTime = iRFromDb.Occasion.DateTime,
-            },
-            Player = new PlayerListItem
-            {
-                Id = iRFromDb.Player.Id,
-                Name = iRFromDb.Player.Name,
-            },
-            Rank = new RankListItem
-            {
-                Id = iRFromDb.Rank.Id,
-                RankName = iRFromDb.Rank.RankName,
-            }
-        };
-    }
 
-    public async Task<bool> UpdateIRAsync(IREdit request)
+            return iRFromDb is null ? null : new IndividualResult
+            {
+                Id = iRFromDb.Id,
+                GameId = iRFromDb.Game.Id,
+                OccasionId = iRFromDb.Occasion.Id,
+                PlayerId = iRFromDb.Player.Id,
+                RankId = iRFromDb.Rank.Id,
+                //Game = new Game
+                //{
+                //    Id = iRFromDb.Game.Id,
+                //    Name = iRFromDb.Game.Name,
+                //},
+                //Occasion = new OccasionListItem
+                //{
+                //    Id = iRFromDb.Occasion.Id,
+                //    Name = iRFromDb.Occasion.Name,
+                //    DateTime = iRFromDb.Occasion.DateTime,
+                //},
+                //Player = new PlayerListItem
+                //{
+                //    Id = iRFromDb.Player.Id,
+                //    Name = iRFromDb.Player.Name,
+                //},
+                //Rank = new RankListItem
+                //{
+                //    Id = iRFromDb.Rank.Id,
+                //    RankName = iRFromDb.Rank.RankName,
+                //}
+            };
+        }
+
+        public async Task<bool> UpdateIRAsync(IndividualResult request)
     {
-        var iRToBeUpdated = await _context.IndividualResults.FindAsync(request.Id);
+        var iRToBeUpdated = await _context.IndividualResult.FindAsync(request.Id);
 
         if (iRToBeUpdated == null)
             return false;
@@ -107,12 +109,12 @@ public class IRService : IIRService
 
     public async Task<bool> DeleteIRAsync(int iRId)
     {
-        var iREntity = await _context.IndividualResults.FindAsync(iRId);
+        var iREntity = await _context.IndividualResult.FindAsync(iRId);
 
         if (iREntity == null)
             return false;
 
-        _context.IndividualResults.Remove(iREntity);
+        _context.IndividualResult.Remove(iREntity);
         return await _context.SaveChangesAsync() == 1;
     }
 }
