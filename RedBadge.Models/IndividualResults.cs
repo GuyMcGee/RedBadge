@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RedBadge.Models.IndividualResultsModels
+namespace RedBadge.Models
 {
-    public class IRCreate
+    public class IndividualResults
     {
+        public int Id { get; set; }
         public int GameId { get; set; }
         public int OccasionId { get; set; }
         public int PlayerId { get; set; }

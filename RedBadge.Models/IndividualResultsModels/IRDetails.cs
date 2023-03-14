@@ -9,8 +9,8 @@ namespace RedBadge.Models.IndividualResultsModels
     {
         public int Id { get; set; }
         public GameListItem Game { get; set; } = null!;
-        public OccasionListItem Occasion { get; set; } = null!;
         public PlayerListItem Player { get; set; } = null!;
+        public OccasionListItem Occasion { get; set; } = null!;
         public RankListItem Rank { get; set; } = null!;
     }
 }
