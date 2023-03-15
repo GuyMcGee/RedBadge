@@ -12,9 +12,9 @@ namespace RedBadge.Models.IndividualResultsModels
     public class IRListItem
     {
         public int Id { get; set; }
-        public int GameId { get; set; }
-        public int OccasionId { get; set; }
-        public int PlayerId { get; set; }
-        public int RankId { get; set; }
+        public string GameName { get; set; }
+        public string OccasionName { get; set; }
+        public string PlayerName { get; set; }
+        public string RankName { get; set; }
     }
 }
