@@ -1,0 +1,29 @@
+﻿@model GameDetails
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<h1>@Model.Name</h1>
+<h4>Game Details</h4>
+<hr/>
+
+<dl class="row">
+    <dt class="col-sm-2">
+    @Html.DisplayNameFor(model=>model.Id)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(Model=>Model.Id)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model=>model.Name)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(Model=>Model.Name)
+    </dd>
+</dl>
+
+<div>
+    <a asp-action="Edit" asp-rout-itemid=@Model.Id>Edit</a>
+    <a asp-action="Index">Back To Games List</a>
+</div>
