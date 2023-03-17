@@ -1,3 +1,28 @@
 ﻿body {
-    background-color: dodgerblue
+    background-color: #f8f9fa;
+}
+
+.badge-secondary{
+    background-color: green;
+}
+
+.navbar {
+    background-color: black;
+    padding: 0 1rem;
+}
+
+.nav-link {
+    color: rgba(255,255,255,0.95) !important;
+    text-align: right;
+}
+.nav-link:hover {
+    opacity: 0.8;
+}
+
+.show-nav-content {
+    display: block !important;
+}
+
+.form-group {
+    text-align: center;
 }

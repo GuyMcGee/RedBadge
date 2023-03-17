@@ -21,9 +21,9 @@ namespace RedBadge.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Details(int playerId)
+        public async Task<IActionResult> Details(int id)
         {
-            return View(await _playerService.GetPlayerByIdAsync(playerId));
+            return View(await _playerService.GetPlayerByIdAsync(id));
         }
 
         [HttpGet]
@@ -47,9 +47,9 @@ namespace RedBadge.Controllers
 
         [HttpGet]
         [Route("Edit/{id}")]
-        public async Task<IActionResult> Edit(int playerId)
+        public async Task<IActionResult> Edit(int id)
         {
-            var player = await _playerService.GetPlayerByIdAsync(playerId);
+            var player = await _playerService.GetPlayerByIdAsync(id);
             var playerEdit = new PlayerEdit
             {
                 Id = player.Id,
@@ -61,10 +61,10 @@ namespace RedBadge.Controllers
         [HttpPost]
         [Route("Edit/{id}")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int playerId, PlayerEdit playerModel)
+        public async Task<IActionResult> Edit(int id, PlayerEdit playerModel)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
-            if (await _playerService.UpdatePlayerAsync(playerId, playerModel))
+            if (await _playerService.UpdatePlayerAsync(id, playerModel))
                 return RedirectToAction(nameof(Index));
             else
                 return View(playerModel);
@@ -72,18 +72,18 @@ namespace RedBadge.Controllers
 
         [HttpGet]
         [Route("Delete/{id}")]
-        public async Task<IActionResult> Delete(int? playerId)
+        public async Task<IActionResult> Delete(int? id)
         {
-            var player = await _playerService.GetPlayerByIdAsync(playerId.Value);
+            var player = await _playerService.GetPlayerByIdAsync(id.Value);
             return View(player);
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("Delete/{id}")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete(int playerId)
+        public async Task<IActionResult> Delete(int id)
         {
-            var isSuccessful = await _playerService.DeletePlayerAsync(playerId);
+            var isSuccessful = await _playerService.DeletePlayerAsync(id);
             if(isSuccessful)
                 return RedirectToAction(nameof(Index));
             else

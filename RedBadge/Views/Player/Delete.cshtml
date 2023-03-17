@@ -1,0 +1,33 @@
+﻿@model RedBadge.Models.PlayerModels.PlayerDetails
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<h1><span class="text-daner">Delete?</span></h1>
+<h4>Delete </h4><span></span>
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model=>model.Id)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(Model=>Model.Id)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model=>model.Name)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(Model=>Model.Name)
+    </dd>
+</dl>
+
+<form asp-action="Delete">
+    <input type="submit" value="Delete" class="btn btn-danger" />
+    <a asp-action="Edit" asp-rout-itemid=@Model.Id>Edit</a>
+    <a asp-action="Index">Back To Player List</a>
+</form>
+
+<div>
+</div>

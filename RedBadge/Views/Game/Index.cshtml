@@ -1,24 +1,20 @@
 ﻿@model IEnumerable<GameListItem>
 
 @{
-    ViewData["Title"] = "Games List";
+    ViewData["Title"] = "Game List";
 }
+
+<h1>Games</h1>
 
 @Html.ActionLink("Add New Game", "Post", "Game")
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th></th>
-        </tr>
-    </thead>
+<div class="card mt-3">
+    <div class="card-body">
+        <table class="table">
     <tbody>
         @foreach (var game in Model)
         {
             <tr>
-                <td>@game.Id</td>
                 <td>@game.Name</td>
                 <td>
                     @Html.ActionLink("Details", "Details", "Game", new {id=game.Id})
@@ -29,3 +25,6 @@
         }
     </tbody>
 </table>
+    </div>
+</div>
+

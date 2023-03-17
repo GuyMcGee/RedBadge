@@ -9,9 +9,9 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-
-<table>
-<tbody>
+<div>
+<div>
+<ul>
 
 @{
     String OccasionCache = "";
@@ -23,56 +23,20 @@
     @if (item.OccasionName != OccasionCache)
     {
         OccasionCache = item.OccasionName;
-        @Html.Raw("</tbody></table>")
-        
+        @Html.Raw("</ul></div></div>")
+
         <text>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Id)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.GameName)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.OccasionName)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.PlayerName)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.RankName)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
+            <div class="card mb-4">
+                <div class="card-body">
+        <h5 class="card-title">@Html.DisplayFor(modelItem => item.OccasionName)</h5>
+        <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(modelItem => item.GameName)</h6>
+        <ul class="list-group list-group-flush">
 
         </text>
     }
     </text>
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.GameName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.OccasionName)
-                    </td>
-                    <td>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
                         @Html.DisplayFor(modelItem => item.PlayerName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.RankName)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                    </td>
-                </tr>
-
+                    <span class="badge badge-pill badge-secondary">@Html.DisplayFor(modelItem => item.RankName)</span>
+                    </li>
 }

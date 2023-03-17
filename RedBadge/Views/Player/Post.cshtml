@@ -1,0 +1,22 @@
+﻿@model RedBadge.Models.PlayerModels.PlayerCreate
+
+@{
+    ViewData["Title"] = "Add A New Player";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form asp-action="Post">
+            <div class="form-group">
+                <label asp-for="Name" class="form-control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+</div>
