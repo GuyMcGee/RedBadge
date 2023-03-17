@@ -4,28 +4,26 @@
     ViewData["Title"] = "Player List";
 }
 
-@Html.ActionLink("Add New Player", "Post", "Player")
+<h1>Players</h1>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var player in Model)
-        {
-            <tr>
-                <td>@player.Id</td>
-                <td>@player.Name</td>
-                <td>
-                    @Html.ActionLink("Details", "Details", "Player", new {id=player.Id})
-                    @Html.ActionLink("Edit", "Edit", "Player", new {id=player.Id})
-                    @Html.ActionLink("Delete", "Delete", "Player", new {id=player.Id})
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+@Html.ActionLink("Add Player", "Post", "Player")
+
+<div class="card mt-3">
+    <div class="card-body">
+        <table class="table">
+            <tbody>
+                @foreach (var player in Model)
+                {
+                    <tr>
+                        <td>@player.Name</td>
+                        <td>
+                            @Html.ActionLink("Details", "Details", "Game", new {id=player.Id})
+                            @Html.ActionLink("Edit", "Edit", "Game", new {id=player.Id})
+                            @Html.ActionLink("Delete", "Delete", "Game", new {id=player.Id})
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -4,19 +4,32 @@
     ViewData["Title"] = "Edit A Game";
 }
 
-<div class="row">
-    <div class="col-md-4">
-        <div asp-validation-summary="ModelOnly" class = "text-danger"></div>
-        <form asp-action="Edit">
-            <div class="form-group">
-                <label asp-for="Name" class="form-control-label"></label>
-                <input asp-for = "Name" class="form-control"/>
-                <span asp-validation-for = "Name" class= "text-danger"></span>
-            </div>
-            <div class= "form-group">
-                <input type = "submit" value="Update" class="btn btn-primary"/>
-            </div>
-        </form>
-    </div>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/Game">Games</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+            Create Game
+        </li>
+    </ol>
+</nav>
 
+<h1>Edit Game</h1>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <form asp-action="Edit">
+                    <div class="form-group">
+                        <input asp-for="Name" class="form-control" placeholder="Enter Game Name" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mt-2">
+                        <input type="submit" value="Edit" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
