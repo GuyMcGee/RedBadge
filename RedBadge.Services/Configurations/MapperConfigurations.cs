@@ -12,3 +12,4 @@ namespace RedBadge.Services.Configurations
         }
     }
 }
+// Keeping this here in case I decide to use it in the future

@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using RedBadge.Models.GameModels;
-using RedBadge.Models.PlayerModels;
 using RedBadge.Services.Game;
-using RedBadge.Services.Player;
+
 
 namespace RedBadge.Controllers
 {

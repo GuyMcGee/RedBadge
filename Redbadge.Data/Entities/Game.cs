@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-
 namespace Redbadge.Data.Entities
 {
     public class GameEntity

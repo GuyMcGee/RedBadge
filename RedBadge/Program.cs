@@ -7,9 +7,6 @@ using RedBadge.Services.Occasion;
 using RedBadge.Services.Rank;
 using RedBadge.Services.IndividualResults;
 
-
-
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => 

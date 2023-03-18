@@ -46,7 +46,6 @@ namespace RedBadge.Controllers
         }
 
         [HttpGet]
-        //[Route("Edit/{id}")]
         public async Task<IActionResult> Edit(int id)
         {
             var occasion = await _occasionService.GetOccasionByIdAsync(id);
@@ -59,7 +58,6 @@ namespace RedBadge.Controllers
         }
 
         [HttpPost]
-        //[Route("Edit/{id}")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, OccasionEdit occasionModel)
         {

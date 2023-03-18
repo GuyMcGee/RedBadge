@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
 using Redbadge.Data.Context;
 using Redbadge.Data.Entities;
 using RedBadge.Models.GameModels;
@@ -41,7 +40,7 @@ namespace RedBadge.Services.Game
             var game = await _context.Game.FindAsync
                 (gameId);
             if (game is null)
-                return null; //is this freaking out because it is impossible for this variable to be null?
+                return null; //why is this null warning here?
             var gameDetail = new GameDetails
             {
                 Id = game.Id,
