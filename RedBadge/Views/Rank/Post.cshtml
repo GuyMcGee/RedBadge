@@ -1,14 +1,14 @@
-﻿@model RedBadge.Models.PlayerModels.PlayerCreate
+﻿@model RedBadge.Models.RankModels.RankCreate
 
 @{
-    ViewData["Title"] = "Add A New Player";
+    ViewData["Title"] = "Add A New Occasion";
 }
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/Player">Players</a></li>
+        <li class="breadcrumb-item"><a href="/Rank">Ranks</a></li>
         <li class="breadcrumb-item active" aria-current="page">
-            Add Player
+            Add Rank
         </li>
     </ol>
 </nav>
@@ -20,8 +20,8 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <form asp-action="Post">
                     <div class="form-group">
-                        <input asp-for="Name" class="form-control" placeholder="Enter Player Name" />
-                        <span asp-validation-for="Name" class="text-danger"></span>
+                        <input asp-for="RankName" class="form-control" placeholder="Enter Name Of Rank" />
+                        <span asp-validation-for="RankName" class="text-danger"></span>
                     </div>
                     <div class="form-group mt-2">
                         <input type="submit" value="Add" class="btn btn-primary" />

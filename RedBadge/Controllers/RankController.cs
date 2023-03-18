@@ -5,7 +5,6 @@ using RedBadge.Services.Rank;
 
 namespace RedBadge.Controllers
 {
-        [Route("[controller]")]
         public class RankController : Controller
         {
             private IRankService _rankService;
@@ -21,10 +20,10 @@ namespace RedBadge.Controllers
                 return View(await _rankService.GetAllRanksAsync());
             }
 
-            [HttpGet("{id}")]
-            public async Task<IActionResult> Details(int rankId)
+            [HttpGet]
+            public async Task<IActionResult> Details(int id)
             {
-                return View(await _rankService.GetRankByIdAsync(rankId));
+                return View(await _rankService.GetRankByIdAsync(id));
             }
 
             [HttpGet]
@@ -48,9 +47,9 @@ namespace RedBadge.Controllers
 
             [HttpGet]
             [Route("Edit/{id}")]
-            public async Task<IActionResult> Edit(int rankId)
+            public async Task<IActionResult> Edit(int id)
             {
-                var rank = await _rankService.GetRankByIdAsync(rankId);
+                var rank = await _rankService.GetRankByIdAsync(id);
                 var rankEdit = new RankEdit
                 {
                     Id = rank.Id,
@@ -71,24 +70,23 @@ namespace RedBadge.Controllers
                     return View(rankModel);
             }
 
-            [HttpGet]
-            [Route("Delete/{id}")]
-            public async Task<IActionResult> Delete(int? rankId)
-            {
-                var rank = await _rankService.GetRankByIdAsync(rankId.Value);
-                return View(rank);
-            }
-
-            [HttpGet]
-            [Route("Delete/{id}")]
-            [ValidateAntiForgeryToken]
-            public async Task<IActionResult> Delete(int rankId)
-            {
-                var isSuccessful = await _rankService.DeleteRankAsync(rankId);
-                if (isSuccessful)
-                    return RedirectToAction(nameof(Index));
-                else
-                    return UnprocessableEntity();
-            }
+        [HttpGet]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            var rank = await _rankService.GetRankByIdAsync(id.Value);
+            return View(rank);
         }
+
+        [HttpPost]
+        //[Route("Delete/{id}")]
+        //[ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var isSuccessful = await _rankService.DeleteRankAsync(id);
+            if (isSuccessful)
+                return RedirectToAction(nameof(Index));
+            else
+                return UnprocessableEntity();
+        }
+    }
 }

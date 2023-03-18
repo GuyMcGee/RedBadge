@@ -1,0 +1,29 @@
+﻿@model IEnumerable<RedBadge.Models.RankModels.RankListItem>
+
+@{
+    ViewData["Title"] = "Rank List";
+}
+
+<h1>Ranks</h1>
+
+@Html.ActionLink("Add Rank", "Post", "Rank")
+
+<div class="card mt-3">
+    <div class="card-body">
+        <table class="table">
+            <tbody>
+                @foreach (var rank in Model)
+                {
+                    <tr>
+                        <td>@rank.RankName</td>
+                        <td>
+                            @Html.ActionLink("Details", "Details", "Rank", new {id=rank.Id})
+                            @Html.ActionLink("Edit", "Edit", "Rank", new {id=rank.Id})
+                            @Html.ActionLink("Delete", "Delete", "Rank", new {id=rank.Id})
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

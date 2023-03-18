@@ -44,6 +44,7 @@ public class PlayerService : IPlayerService
         {
             var playerDetail = new PlayerDetails
             {
+                Id = playerFromDb.Id,
                 Name = playerFromDb.Name,
             };
 

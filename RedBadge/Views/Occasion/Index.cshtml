@@ -1,0 +1,29 @@
+﻿@model IEnumerable<RedBadge.Models.OccasionModels.OccasionListItem>
+
+@{
+    ViewData["Title"] = "Occasion List";
+}
+
+<h1>Occasions Of Play</h1>
+
+@Html.ActionLink("Add Occasion", "Post", "Occasion")
+
+<div class="card mt-3">
+    <div class="card-body">
+        <table class="table">
+            <tbody>
+                @foreach (var occasion in Model)
+                {
+                    <tr>
+                        <td>@occasion.Name</td>
+                        <td>
+                            @Html.ActionLink("Details", "Details", "Occasion", new {id=occasion.Id})
+                            @Html.ActionLink("Edit", "Edit", "Occasion", new {id=occasion.Id})
+                            @Html.ActionLink("Delete", "Delete", "Occasion", new {id=occasion.Id})
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

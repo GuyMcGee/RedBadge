@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RedBadge.Models.OccasionModels;
 using RedBadge.Services.Occasion;
+using RedBadge.Services.Player;
 
 namespace RedBadge.Controllers
 {
-    [Route("[controller]")]
     public class OccasionController : Controller
     {
         private IOccasionService _occasionService;
@@ -20,10 +20,23 @@ namespace RedBadge.Controllers
             return View(await _occasionService.GetAllOccasionsAsync());
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
+        {
+            return View(await _occasionService.GetOccasionByIdAsync(id));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Post()
+        {
+            return View();
+        }
+
+
         [HttpPost]
-        [Route("Post")]
+        [ActionName("Post")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Post(OccasionCreate model)
+        public async Task<IActionResult> PostOccasion(OccasionCreate model)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
             if (await _occasionService.CreateOccasionAsync(model))
@@ -33,10 +46,10 @@ namespace RedBadge.Controllers
         }
 
         [HttpGet]
-        [Route("Edit/{id}")]
-        public async Task<IActionResult> Edit(int occasionId)
+        //[Route("Edit/{id}")]
+        public async Task<IActionResult> Edit(int id)
         {
-            var occasion = await _occasionService.GetOccasionByIdAsync(occasionId);
+            var occasion = await _occasionService.GetOccasionByIdAsync(id);
             var occasionEdit = new OccasionEdit
             {
                 Id = occasion.Id,
@@ -46,7 +59,7 @@ namespace RedBadge.Controllers
         }
 
         [HttpPost]
-        [Route("Edit/{id}")]
+        //[Route("Edit/{id}")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int occasionId, OccasionEdit occasionModel)
         {
@@ -59,18 +72,18 @@ namespace RedBadge.Controllers
 
         [HttpGet]
         [Route("Delete/{id}")]
-        public async Task<IActionResult> Delete(int? occasionId)
+        public async Task<IActionResult> Delete(int? id)
         {
-            var occasion = await _occasionService.GetOccasionByIdAsync(occasionId.Value);
+            var occasion = await _occasionService.GetOccasionByIdAsync(id.Value);
             return View(occasion);
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("Delete/{id}")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete(int occasionId)
+        public async Task<IActionResult> Delete(int id)
         {
-            var isSuccessful = await _occasionService.DeleteOccasionAsync(occasionId);
+            var isSuccessful = await _occasionService.DeleteOccasionAsync(id);
             if (isSuccessful)
                 return RedirectToAction(nameof(Index));
             else

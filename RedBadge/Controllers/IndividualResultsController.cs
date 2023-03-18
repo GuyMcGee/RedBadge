@@ -53,7 +53,7 @@ namespace RedBadge.Controllers
             var iREdit = new IREdit
             {
                 Id = iR.Id,
-                Name = iR.Player.Name,
+                //Name = iR.Player.Name,
             };
             return View(iREdit);
         }

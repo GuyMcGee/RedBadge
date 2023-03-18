@@ -9,21 +9,28 @@ using RedBadge.Models.OccasionModels;
 using RedBadge.Models.PlayerModels;
 using RedBadge.Models.RankModels;
 using System.Runtime.CompilerServices;
+using AutoMapper;
 
 namespace RedBadge.Services.IndividualResults
 {
 public class IRService : IIRService
 {
     private readonly ApplicationDbContext _context;
+        private IMapper _mapper;
 
-    public IRService(ApplicationDbContext context)
+    public IRService(ApplicationDbContext context, IMapper mapper)
     {
         _context = context;
+            _mapper = mapper;
     }
 
     public async Task<bool> CreateIRAsync (IRCreate iRToCreate)
     {
-        var entity = new IndividualResultsEntity
+        //var iREntity = _mapper.Map<IndividualResultsEntity>(iRModel);
+        //    await _context.IndividualResults.AddAsync(iREntity);
+        //    return await _context.SaveChangesAsync() > 0;
+
+            var entity = new IndividualResultsEntity
         {
             GameId = iRToCreate.GameId,
             OccasionId = iRToCreate.OccasionId,
