@@ -61,10 +61,10 @@ namespace RedBadge.Controllers
         [HttpPost]
         //[Route("Edit/{id}")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int occasionId, OccasionEdit occasionModel)
+        public async Task<IActionResult> Edit(int id, OccasionEdit occasionModel)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
-            if (await _occasionService.UpdateOccasionAsync(occasionId, occasionModel))
+            if (await _occasionService.UpdateOccasionAsync(id, occasionModel))
                 return RedirectToAction(nameof(Index));
             else
                 return View(occasionModel);

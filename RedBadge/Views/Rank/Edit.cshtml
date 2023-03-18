@@ -1,14 +1,14 @@
-﻿@model RedBadge.Models.OccasionModels.OccasionEdit
+﻿@model RedBadge.Models.RankModels.RankEdit
 
 @{
-    ViewData["Title"] = "Edit Occasion";
+    ViewData["Title"] = "Add A New Occasion";
 }
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/Occasion">Occasions</a></li>
+        <li class="breadcrumb-item"><a href="/Ranks">Ranks</a></li>
         <li class="breadcrumb-item active" aria-current="page">
-            Edit Occasion
+            Edit Rank
         </li>
     </ol>
 </nav>
@@ -20,8 +20,8 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <form asp-action="Edit">
                     <div class="form-group">
-                        <input asp-for="Name" class="form-control" placeholder="Edit Name Of Occasion" />
-                        <span asp-validation-for="Name" class="text-danger"></span>
+                        <input asp-for="RankName" class="form-control" placeholder="Edit Name Of Rank" />
+                        <span asp-validation-for="RankName" class="text-danger"></span>
                     </div>
                     <div class="form-group mt-2">
                         <input type="submit" value="Edit" class="btn btn-primary" />
