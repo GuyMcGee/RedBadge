@@ -11,5 +11,6 @@
     public Task<bool> UpdateIRAsync(IREdit request);
 
     public Task<bool> DeleteIRAsync(int iRId);
+    public Task<IRCreate> GetIRCreateAsync();
 }
 

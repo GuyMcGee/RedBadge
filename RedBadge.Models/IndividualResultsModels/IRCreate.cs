@@ -1,4 +1,9 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using RedBadge.Models.GameModels;
+using RedBadge.Models.OccasionModels;
+using RedBadge.Models.PlayerModels;
+using RedBadge.Models.RankModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,20 +15,29 @@ namespace RedBadge.Models.IndividualResultsModels
     public class IRCreate
     {
         [Required]
-        [MaxLength(64, ErrorMessage = "Cannot exceed 64 characters")]
-        [MinLength(1, ErrorMessage = "Must have at least 1 character")]
         public int GameId { get; set; }
         [Required]
-        [MaxLength(64, ErrorMessage = "Cannot exceed 64 characters")]
-        [MinLength(1, ErrorMessage = "Must have at least 1 character")]
-        public int OccasionId { get; set; } 
+        public int OccasionId { get; set; }
         [Required]
-        [MaxLength(64, ErrorMessage = "Cannot exceed 64 characters")]
-        [MinLength(1, ErrorMessage = "Must have at least 1 character")]
-        public int PlayerId { get; set; } 
+        public int PlayerId { get; set; }
         [Required]
-        [MaxLength(64, ErrorMessage = "Cannot exceed 64 characters")]
-        [MinLength(1, ErrorMessage = "Must have at least 1 character")]
-        public int RankId { get; set; } 
+        public int RankId { get; set; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+public List<OccasionListItem>? OccasionOptions { get; set; }
+public List<PlayerListItem>? PlayerOptions { get; set; }
+        public List<RankListItem>? RankOptions { get; set; }
+        public List<GameListItem>? GameOptions { get; set; }
     }
 }

@@ -8,8 +8,12 @@ using RedBadge.Models.GameModels;
 using RedBadge.Models.OccasionModels;
 using RedBadge.Models.PlayerModels;
 using RedBadge.Models.RankModels;
+using RedBadge.Services.Game;
 using System.Runtime.CompilerServices;
 using AutoMapper;
+using RedBadge.Services.Player;
+using RedBadge.Services.Occasion;
+using RedBadge.Services.Rank;
 
 namespace RedBadge.Services.IndividualResults
 {
@@ -26,10 +30,9 @@ public class IRService : IIRService
 
     public async Task<bool> CreateIRAsync (IRCreate iRToCreate)
     {
-        //var iREntity = _mapper.Map<IndividualResultsEntity>(iRModel);
-        //    await _context.IndividualResults.AddAsync(iREntity);
-        //    return await _context.SaveChangesAsync() > 0;
-
+            Console.WriteLine(iRToCreate.GameId);
+            Console.WriteLine("Below is the id of the occasion we have selected.");
+            Console.WriteLine(iRToCreate.OccasionId);
             var entity = new IndividualResultsEntity
         {
             GameId = iRToCreate.GameId,
@@ -122,5 +125,21 @@ public class IRService : IIRService
         _context.IndividualResults.Remove(iREntity);
         return await _context.SaveChangesAsync() == 1;
     }
+
+        public async Task<IRCreate> GetIRCreateAsync()
+        {
+            var irCreate = new IRCreate();
+            var gameService = new GameService(_context);
+            var occasionService = new OccasionService(_context);
+            var playerService = new PlayerService(_context);
+            var rankService = new RankService(_context);
+
+            irCreate.GameOptions = await gameService.GetAllGamesAsync();
+            irCreate.OccasionOptions = await occasionService.GetAllOccasionsAsync();
+            irCreate.PlayerOptions = await playerService.GetAllPlayersAsync();
+            irCreate.RankOptions = await rankService.GetAllRanksAsync();
+
+            return irCreate;
+        }
 }
 }

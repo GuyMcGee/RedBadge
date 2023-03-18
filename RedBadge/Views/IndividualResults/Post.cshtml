@@ -1,18 +1,58 @@
-﻿@model RedBadge.Models.IndividualResultsModels.IRCreate 
+﻿@model RedBadge.Models.IndividualResultsModels.IRCreate
 
 @{
-    ViewData["Title"] = "Add New Results";
+    ViewData["Title"] = "Create Results";
 }
 
-<asp:DropDownList id="ColorList"
-                  AutoPostBack="True"
-                  OnSelectedIndexChanged="Selection_Change"
-                  runat="server">
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/Results">Results</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+            Create Results 
+        </li>
+    </ol>
+</nav>
 
-    <asp:ListItem Selected="True" Value="White"> White </asp:ListItem>
-    <asp:ListItem Value="Silver"> Silver </asp:ListItem>
-    <asp:ListItem Value="DarkGray"> Dark Gray </asp:ListItem>
-    <asp:ListItem Value="Khaki"> Khaki </asp:ListItem>
-    <asp:ListItem Value="DarkKhaki"> Dark Khaki </asp:ListItem>
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <form asp-action="Post">
+                    <div class="form-group">
+                        <select asp-for="GameId">
+                            @foreach (var option in Model.GameOptions)
+                            {
+                                Console.WriteLine(option.Name);
+                                <option value=@option.Id>@option.Name</option>
+                            }
+                        </select><select asp-for="PlayerId">
+                            @foreach (var option in Model.PlayerOptions)
+                            {
+                                Console.WriteLine(option.Name);
+                                <option value=@option.Id>@option.Name</option>
+                            }
+                        </select><select asp-for="OccasionId">
+                            @foreach (var option in Model.OccasionOptions)
+                            {
+                                Console.WriteLine(option.Name);
+                                <option value=@option.Id>@option.Name</option>
+                            }
+                        </select><select asp-for="RankId">
+                            @foreach (var option in Model.RankOptions)
+                            {
+                                Console.WriteLine(option.RankName);
+                                <option value=@option.Id>@option.RankName</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group mt-2">
+                        <input type="submit" value="Add" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
-</asp:DropDownList>
+

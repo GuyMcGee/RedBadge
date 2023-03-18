@@ -30,7 +30,7 @@ namespace RedBadge.Controllers
         [Route("Post")]
         public async Task<IActionResult> Post()
         {
-            return View();
+            return View(await _iRService.GetIRCreateAsync());
         }
 
         [HttpPost]
