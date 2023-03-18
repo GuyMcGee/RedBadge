@@ -17,6 +17,7 @@ First, clone the repository. While in the root directory, the command "dotnet ru
  - CRUD for Results Table not yet complete
 
 ## Technologies and Features
+ - Mobile-First Design
  - C#
  - ASP.Net Core 6
  - MS SQL
