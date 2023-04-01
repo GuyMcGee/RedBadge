@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Redbadge.Data.Context;
 
@@ -11,9 +12,11 @@ using Redbadge.Data.Context;
 namespace Redbadge.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230401061919_Adding User Auth")]
+    partial class AddingUserAuth
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -249,7 +252,7 @@ namespace Redbadge.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Game", (string)null);
+                    b.ToTable("Game");
 
                     b.HasData(
                         new
@@ -315,7 +318,7 @@ namespace Redbadge.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("IndividualResults", (string)null);
+                    b.ToTable("IndividualResults");
                 });
 
             modelBuilder.Entity("Redbadge.Data.Entities.OccasionEntity", b =>
@@ -335,7 +338,7 @@ namespace Redbadge.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Occasion", (string)null);
+                    b.ToTable("Occasion");
 
                     b.HasData(
                         new
@@ -384,7 +387,7 @@ namespace Redbadge.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Player", (string)null);
+                    b.ToTable("Player");
 
                     b.HasData(
                         new
@@ -428,7 +431,7 @@ namespace Redbadge.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Rank", (string)null);
+                    b.ToTable("Rank");
 
                     b.HasData(
                         new

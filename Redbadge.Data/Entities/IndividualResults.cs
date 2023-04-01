@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Redbadge.Data.Entities;
 
 namespace Redbadge.Data.Entities
 {
@@ -26,5 +27,10 @@ namespace Redbadge.Data.Entities
         [ForeignKey(nameof(RankEntity))]
         public int RankId { get; set; }
         public RankEntity Rank { get; set; } = null!;
+
+
+        public string UserId { get; set; } = null!;
+        [ForeignKey(nameof(UserId))]
+        public AppUser AppUser { get; set; } = null!;
     }
 }

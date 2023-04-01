@@ -1,20 +1,33 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Redbadge.Data.Entities;
 
 namespace Redbadge.Data.Context
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<AppUser> //AppUser has everything IdentityDb has plus AppUser
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+        public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<GameEntity> Game { get; set; }
         public DbSet<OccasionEntity> Occasion { get; set; }
         public DbSet<PlayerEntity> Player { get; set; }
         public DbSet<RankEntity> Rank { get; set; }
         public DbSet<IndividualResultsEntity> IndividualResults { get; set; }
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<IdentityRole>().HasData(
+                new IdentityRole
+                {
+                    Name = "Administrator",
+                    NormalizedName="ADMINISTRATOR"
+                }
+                
+                );
+
             modelBuilder.Entity<GameEntity>().HasData(
                 new GameEntity
                 {

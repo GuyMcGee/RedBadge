@@ -6,11 +6,15 @@ using RedBadge.Services.Player;
 using RedBadge.Services.Occasion;
 using RedBadge.Services.Rank;
 using RedBadge.Services.IndividualResults;
+using Microsoft.AspNetCore.Identity;
+using Redbadge.Data.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => 
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

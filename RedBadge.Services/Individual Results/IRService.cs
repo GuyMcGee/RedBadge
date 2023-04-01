@@ -22,7 +22,7 @@ namespace RedBadge.Services.IndividualResults
         public IRService(ApplicationDbContext context, IMapper mapper)
         {
             _context = context;
-            _mapper = mapper;
+            //_mapper = mapper; (mapper is being kept for potential future use)
         }
 
         public async Task<bool> CreateIRAsync(IRCreate iRToCreate)
