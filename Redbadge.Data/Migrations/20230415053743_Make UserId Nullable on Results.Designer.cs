@@ -12,15 +12,15 @@ using Redbadge.Data.Context;
 namespace Redbadge.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230401061919_Adding User Auth")]
-    partial class AddingUserAuth
+    [Migration("20230415053743_Make UserId Nullable on Results")]
+    partial class MakeUserIdNullableonResults
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.4")
+                .HasAnnotation("ProductVersion", "7.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -54,7 +54,7 @@ namespace Redbadge.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "524bdec6-110d-4e12-bd74-baa74ccb1fd8",
+                            Id = "9c9e5996-4f98-479a-b11b-850c5771ee6d",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -344,31 +344,31 @@ namespace Redbadge.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateTime = new DateTime(2023, 4, 1, 2, 19, 19, 173, DateTimeKind.Local).AddTicks(3824),
+                            DateTime = new DateTime(2023, 4, 15, 1, 37, 43, 72, DateTimeKind.Local).AddTicks(6256),
                             Name = "Bryan's Bachelor Party"
                         },
                         new
                         {
                             Id = 2,
-                            DateTime = new DateTime(2023, 4, 1, 2, 19, 19, 173, DateTimeKind.Local).AddTicks(3866),
+                            DateTime = new DateTime(2023, 4, 15, 1, 37, 43, 72, DateTimeKind.Local).AddTicks(6305),
                             Name = "That one time at Kyle's house"
                         },
                         new
                         {
                             Id = 3,
-                            DateTime = new DateTime(2023, 4, 1, 2, 19, 19, 173, DateTimeKind.Local).AddTicks(3868),
+                            DateTime = new DateTime(2023, 4, 15, 1, 37, 43, 72, DateTimeKind.Local).AddTicks(6308),
                             Name = "August 13th, 1998"
                         },
                         new
                         {
                             Id = 4,
-                            DateTime = new DateTime(2023, 4, 1, 2, 19, 19, 173, DateTimeKind.Local).AddTicks(3869),
+                            DateTime = new DateTime(2023, 4, 15, 1, 37, 43, 72, DateTimeKind.Local).AddTicks(6312),
                             Name = "2004 Xmas Party"
                         },
                         new
                         {
                             Id = 5,
-                            DateTime = new DateTime(2023, 4, 1, 2, 19, 19, 173, DateTimeKind.Local).AddTicks(3871),
+                            DateTime = new DateTime(2023, 4, 15, 1, 37, 43, 72, DateTimeKind.Local).AddTicks(6315),
                             Name = "07/04/2021"
                         });
                 });

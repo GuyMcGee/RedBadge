@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Redbadge.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class AddingUserAuth : Migration
+    public partial class Init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -262,7 +262,7 @@ namespace Redbadge.Data.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "524bdec6-110d-4e12-bd74-baa74ccb1fd8", null, "Administrator", "ADMINISTRATOR" });
+                values: new object[] { "783454a2-1a07-4aac-b213-0d6db198e12e", null, "Administrator", "ADMINISTRATOR" });
 
             migrationBuilder.InsertData(
                 table: "Game",
@@ -281,11 +281,11 @@ namespace Redbadge.Data.Migrations
                 columns: new[] { "Id", "DateTime", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 4, 1, 2, 19, 19, 173, DateTimeKind.Local).AddTicks(3824), "Bryan's Bachelor Party" },
-                    { 2, new DateTime(2023, 4, 1, 2, 19, 19, 173, DateTimeKind.Local).AddTicks(3866), "That one time at Kyle's house" },
-                    { 3, new DateTime(2023, 4, 1, 2, 19, 19, 173, DateTimeKind.Local).AddTicks(3868), "August 13th, 1998" },
-                    { 4, new DateTime(2023, 4, 1, 2, 19, 19, 173, DateTimeKind.Local).AddTicks(3869), "2004 Xmas Party" },
-                    { 5, new DateTime(2023, 4, 1, 2, 19, 19, 173, DateTimeKind.Local).AddTicks(3871), "07/04/2021" }
+                    { 1, new DateTime(2023, 4, 15, 1, 30, 25, 825, DateTimeKind.Local).AddTicks(7534), "Bryan's Bachelor Party" },
+                    { 2, new DateTime(2023, 4, 15, 1, 30, 25, 825, DateTimeKind.Local).AddTicks(7592), "That one time at Kyle's house" },
+                    { 3, new DateTime(2023, 4, 15, 1, 30, 25, 825, DateTimeKind.Local).AddTicks(7607), "August 13th, 1998" },
+                    { 4, new DateTime(2023, 4, 15, 1, 30, 25, 825, DateTimeKind.Local).AddTicks(7638), "2004 Xmas Party" },
+                    { 5, new DateTime(2023, 4, 15, 1, 30, 25, 825, DateTimeKind.Local).AddTicks(7645), "07/04/2021" }
                 });
 
             migrationBuilder.InsertData(

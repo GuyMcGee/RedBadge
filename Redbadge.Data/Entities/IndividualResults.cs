@@ -29,8 +29,8 @@ namespace Redbadge.Data.Entities
         public RankEntity Rank { get; set; } = null!;
 
 
-        public string UserId { get; set; } = null!;
         [ForeignKey(nameof(UserId))]
-        public AppUser AppUser { get; set; } = null!;
+        public int? UserId { get; set; } 
+        public AppUser? AppUser { get; set; }
     }
 }

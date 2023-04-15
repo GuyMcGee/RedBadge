@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Redbadge.Data.Context;
 
@@ -11,9 +12,11 @@ using Redbadge.Data.Context;
 namespace Redbadge.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230415053026_Init")]
+    partial class Init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,7 +54,7 @@ namespace Redbadge.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "306dc6cf-cf53-4b8a-a4e8-5fec3520e910",
+                            Id = "783454a2-1a07-4aac-b213-0d6db198e12e",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -287,9 +290,6 @@ namespace Redbadge.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AppUserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int>("GameId")
                         .HasColumnType("int");
 
@@ -302,12 +302,11 @@ namespace Redbadge.Data.Migrations
                     b.Property<int>("RankId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AppUserId");
 
                     b.HasIndex("GameId");
 
@@ -316,6 +315,8 @@ namespace Redbadge.Data.Migrations
                     b.HasIndex("PlayerId");
 
                     b.HasIndex("RankId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("IndividualResults");
                 });
@@ -343,31 +344,31 @@ namespace Redbadge.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateTime = new DateTime(2023, 4, 15, 1, 48, 59, 4, DateTimeKind.Local).AddTicks(4166),
+                            DateTime = new DateTime(2023, 4, 15, 1, 30, 25, 825, DateTimeKind.Local).AddTicks(7534),
                             Name = "Bryan's Bachelor Party"
                         },
                         new
                         {
                             Id = 2,
-                            DateTime = new DateTime(2023, 4, 15, 1, 48, 59, 4, DateTimeKind.Local).AddTicks(4365),
+                            DateTime = new DateTime(2023, 4, 15, 1, 30, 25, 825, DateTimeKind.Local).AddTicks(7592),
                             Name = "That one time at Kyle's house"
                         },
                         new
                         {
                             Id = 3,
-                            DateTime = new DateTime(2023, 4, 15, 1, 48, 59, 4, DateTimeKind.Local).AddTicks(4369),
+                            DateTime = new DateTime(2023, 4, 15, 1, 30, 25, 825, DateTimeKind.Local).AddTicks(7607),
                             Name = "August 13th, 1998"
                         },
                         new
                         {
                             Id = 4,
-                            DateTime = new DateTime(2023, 4, 15, 1, 48, 59, 4, DateTimeKind.Local).AddTicks(4372),
+                            DateTime = new DateTime(2023, 4, 15, 1, 30, 25, 825, DateTimeKind.Local).AddTicks(7638),
                             Name = "2004 Xmas Party"
                         },
                         new
                         {
                             Id = 5,
-                            DateTime = new DateTime(2023, 4, 15, 1, 48, 59, 4, DateTimeKind.Local).AddTicks(4375),
+                            DateTime = new DateTime(2023, 4, 15, 1, 30, 25, 825, DateTimeKind.Local).AddTicks(7645),
                             Name = "07/04/2021"
                         });
                 });
@@ -513,10 +514,6 @@ namespace Redbadge.Data.Migrations
 
             modelBuilder.Entity("Redbadge.Data.Entities.IndividualResultsEntity", b =>
                 {
-                    b.HasOne("Redbadge.Data.Entities.AppUser", "AppUser")
-                        .WithMany()
-                        .HasForeignKey("AppUserId");
-
                     b.HasOne("Redbadge.Data.Entities.GameEntity", "Game")
                         .WithMany()
                         .HasForeignKey("GameId")
@@ -538,6 +535,12 @@ namespace Redbadge.Data.Migrations
                     b.HasOne("Redbadge.Data.Entities.RankEntity", "Rank")
                         .WithMany()
                         .HasForeignKey("RankId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Redbadge.Data.Entities.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
