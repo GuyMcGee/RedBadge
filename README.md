@@ -12,8 +12,6 @@ The following assumes you are on Windows:
 First, clone the repository. While in the root directory, the command "dotnet run --project .\RedBadge\" will run the app from the terminal.
 
 ## Known Issues
- - Not yet deployed 
- - No User Authentication
  - CRUD for Results Table not yet complete
 
 ## Technologies and Features
