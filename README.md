@@ -17,5 +17,6 @@ First, clone the repository. While in the root directory, the command "dotnet ru
 ## Technologies and Features
  - Mobile-First Design
  - C#
- - ASP.Net Core 6
+ - ASP.Net Core 7
  - MS SQL
+ - Deployed to Azure
