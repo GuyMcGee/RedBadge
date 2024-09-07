@@ -1,5 +1,7 @@
 # frENDr
 
+!(https://github.com/GuyMcGee/frENDr/blob/master/frendr.jpg?raw=true)
+
 Created by Adam Lair using ASP.NET Core 6 and MVC Architechture with MS SQL Server database
 
 ## About the App
