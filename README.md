@@ -1,6 +1,5 @@
 # frENDr
-
-!(https://github.com/GuyMcGee/frENDr/blob/master/frendr.jpg?raw=true)
+<img src="https://github.com/user-attachments/assets/90a140fe-8d73-4e3a-b219-61f01ac2d674" width="375px">
 
 Created by Adam Lair using ASP.NET Core 6 and MVC Architechture with MS SQL Server database
 
